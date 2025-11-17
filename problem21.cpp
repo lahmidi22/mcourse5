@@ -8,8 +8,13 @@ using namespace std;
 int ReadNumber(string Message)
 {
 	int number = 0;
-	cout << Message << endl;
-	cin >> number;
+
+	do
+	{
+		cout << Message << endl;
+		cin >> number;
+
+	} while (number < 0);
 
 	return number;
 }
