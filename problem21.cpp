@@ -29,47 +29,76 @@ int guessNumber(int From, int To)
 	return number;
 }
 
-string charGenerate()
+enum EnCharType { SmallLetters = 1, capitalLetters = 2, Charactet = 3, Digit = 4 };
+
+char Type_Of_Charachter(EnCharType CharType)
+{
+	switch (CharType)
+	{
+	case EnCharType::SmallLetters:
+	{
+		return char(guessNumber(97, 122));
+		break;
+	}
+	case EnCharType::capitalLetters:
+	{
+		return char(guessNumber(65, 90));
+		break;
+	}
+	case EnCharType::Charactet:
+	{
+		return char(guessNumber(33, 47));
+		break;
+	}
+	case EnCharType::Digit:
+	{
+		return char(guessNumber(43, 51));
+		break;
+	}
+	default:
+	{
+		return '\0';
+		break;
+	}
+
+	}
+}
+
+string Generatword(EnCharType CharType, short Length)
 {
 	string word = "";
 
-	for (int i = 1; i <= 4; i++)
+	for (int i = 1; i <= Length; i++)
 	{
-		word += char(guessNumber(65, 90));
+		word += Type_Of_Charachter(CharType);
 	}
+
 	return word;
 }
-string keyGenerate()
+
+
+string GeneratKey()
 {
-	string fullkey = "";
+	string Key = "";
 
-	for (int i = 1; i <= 4; i++)
-	{
-		if (i < 4)
-		{
-			fullkey += (charGenerate() + char(45));
-		}
-		else
-		{
-			fullkey += (charGenerate());
-		}
+	Key += Generatword(EnCharType::capitalLetters, 4) + "-";
+	Key += Generatword(EnCharType::capitalLetters, 4) + "-";
+	Key += Generatword(EnCharType::capitalLetters, 4) + "-";
+	Key += Generatword(EnCharType::capitalLetters, 4);
 
-	}
-	return fullkey;
+	return Key;
 }
-void keys(int number)
+void Number_Of_Keys(int number)
 {
 	for (int i = 1; i <= number; i++)
 	{
-		system("color 6f");
-		cout << "Key [ " << i << " ] : " << keyGenerate() << endl;
+		cout << "Key [" << i << "] : " << GeneratKey() << endl;
 	}
 }
 int main()
 {
 	srand((unsigned)time(NULL));
 
-	keys(ReadNumber("enter  how many keys do you want"));
-
+	Number_Of_Keys(ReadNumber("enter how many keys do you want"));
 	return 0;
 }
