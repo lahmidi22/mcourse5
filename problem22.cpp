@@ -62,7 +62,8 @@ int TimesRepeated(int number, int arr[100], int arrlength)
 int main()
 {
 
-	int arr[100], arrlength = 0;
+	int arr[100];
+	int arrlength = 0;
 
 	ReadArray(arr, arrlength);
 
