@@ -21,17 +21,15 @@ void  ReadArray(int arr[100], int& arrlength)
 	cout << "enter array element :" << endl;
 	cin >> arrlength;
 
-	int i = 0;
-
-	while (i < arrlength)
+	for (int i = 0; i < arrlength; i++)
 	{
-
 		cout << "Element [" << i + 1 << "] : ";
 
 		cin >> arr[i];
-		i++;
-
+		
 	}
+
+	
 	cout << endl;
 
 }
