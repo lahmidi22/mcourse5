@@ -37,11 +37,11 @@ void PrintArrElement(int arr[100], int length)
 
 int MaxNumber(int arr[100], int length)
 {
-	int max = arr[0];
+	int max = 0;
 	for (int i = 1; i < length; i++)
 	{
 
-		if (max < arr[i])
+		if (arr[i]> max)
 		{
 			max = arr[i];
 		}
@@ -61,10 +61,10 @@ int main()
 
 	ArrElement(arr, length);
 
-	cout << "array element ";
+	cout << "Array Elements ";
 	PrintArrElement(arr, length);
 
-	cout << "max number: ";
+	cout << "\nMax number is : ";
 	cout << MaxNumber(arr, length);
 
 	return 0;
