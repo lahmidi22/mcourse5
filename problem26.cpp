@@ -60,7 +60,7 @@ int main()
 	cout << "array element ";
 	PrintArrElement(arr, length);
 
-	cout << "Min number: ";
+	cout << "Sum number: ";
 	cout << sumNumber(arr, length);
 
 	return 0;
