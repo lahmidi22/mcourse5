@@ -1,0 +1,80 @@
+#include<iostream>
+#include<string> 
+//#include <cstdlib>    // Include cstdlib for rand() and srand() functions.
+//#include <ctime>      // Include ctime for the time() function, used for seeding the random number generator.
+
+using namespace std;
+
+
+int RandomNumber(int From, int To)
+{
+	int RandNumber = rand() % (To - From + 1) + From;
+
+	return RandNumber;
+}
+
+void ArrElement(int arr[100], int& length)
+{
+	cout << "enter numbr of element" << endl;
+	cin >> length;
+
+	for (int i = 0; i < length; i++)
+	{
+		arr[i] = RandomNumber(1, 100);
+	}
+
+}
+
+void Arr2Element(int arr2[100], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		arr2[i] = RandomNumber(1, 100);
+	}
+}
+
+void SumOf2Arrays(int arr3[100], int arr2[100], int arr[100], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		arr3[i] = (arr2[i] + arr[i]);
+	}
+}
+
+void PrintArrElement(int arr[100], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << "\n";
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+
+	int arr[100];
+	int length;
+
+	ArrElement(arr, length);
+
+	int arr2[100];
+
+	Arr2Element(arr2, length);
+
+	int arr3[100];
+	SumOf2Arrays(arr3, arr2, arr, length);
+
+	cout << "\nArray 1 elements :\n";
+	PrintArrElement(arr, length);
+
+	cout << "\nArray 2 elements :\n";
+	PrintArrElement(arr2, length);
+
+	cout << "\n Sum of array1 and array2 elements : \n";
+	PrintArrElement(arr3, length);
+
+	return 0;
+}
