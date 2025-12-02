@@ -79,7 +79,7 @@ int main()
 
 	short NumberPosition = FindNumberPosition(Number, arr, arrLength);
 
-	if (!FindNumberPosition(Number, arr, arrLength))
+	if (!IsNumberInArray(Number, arr, arrLength))
 	{
 		cout << "No, The number is not found :-(\n";
 	}
